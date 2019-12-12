@@ -22,7 +22,6 @@ package model
 
 import (
 	"github.com/brugnara/grammes/gremerror"
-
 	"github.com/brugnara/grammes/query/traversal"
 )
 
