@@ -36,5 +36,5 @@ type EdgeValue struct {
 // and ID of the vertex.
 type EdgeVertex struct {
 	Type  string `json:"@type"`
-	Value int64  `json:"@value"`
+	Value string `json:"@value"`
 }

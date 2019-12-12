@@ -23,7 +23,7 @@ package grammes_test
 import (
 	"log"
 
-	"github.com/northwesternmutual/grammes"
+	"github.com/brugnara/grammes"
 )
 
 func Example_newClient() {

@@ -21,15 +21,15 @@
 package quick
 
 import (
-	"github.com/northwesternmutual/grammes/query/cardinality"
-	"github.com/northwesternmutual/grammes/query/datatype"
-	"github.com/northwesternmutual/grammes/query/multiplicity"
+	"github.com/brugnara/grammes/query/cardinality"
+	"github.com/brugnara/grammes/query/datatype"
+	"github.com/brugnara/grammes/query/multiplicity"
 )
 
 // AddEdgeLabel adds the edge label to the
 // graph directly. This method returns the schema id
 // of the edge label added.
-func AddEdgeLabel(multi multiplicity.Multiplicity, host, label string) (int64, error) {
+func AddEdgeLabel(multi multiplicity.Multiplicity, host, label string) (string, error) {
 	err := checkForClient(host)
 	if err != nil {
 		return 0, err
@@ -38,7 +38,7 @@ func AddEdgeLabel(multi multiplicity.Multiplicity, host, label string) (int64, e
 	sq := client.GraphManager.SchemaQuerier()
 	res, err := sq.AddEdgeLabel(multi, label)
 	if err != nil {
-		return 0, err
+		return "", err
 	}
 
 	return res, nil
@@ -48,7 +48,7 @@ func AddEdgeLabel(multi multiplicity.Multiplicity, host, label string) (int64, e
 // but with the ability to do multiple labels at a
 // time. This function is called similarly to your
 // favorite logger.
-func AddEdgeLabels(host string, multiplicityAndLabels ...interface{}) ([]int64, error) {
+func AddEdgeLabels(host string, multiplicityAndLabels ...interface{}) ([]string, error) {
 	err := checkForClient(host)
 	if err != nil {
 		return nil, err
@@ -66,7 +66,7 @@ func AddEdgeLabels(host string, multiplicityAndLabels ...interface{}) ([]int64, 
 // AddPropertyKey adds the edge label to the
 // graph directly. This method returns the schema id
 // of the edge label added.
-func AddPropertyKey(host, propertyName string, datatype datatype.DataType, cardinality cardinality.Cardinality) (int64, error) {
+func AddPropertyKey(host, propertyName string, datatype datatype.DataType, cardinality cardinality.Cardinality) (string, error) {
 	err := checkForClient(host)
 	if err != nil {
 		return 0, err
@@ -75,7 +75,7 @@ func AddPropertyKey(host, propertyName string, datatype datatype.DataType, cardi
 	sq := client.GraphManager.SchemaQuerier()
 	res, err := sq.AddPropertyKey(propertyName, datatype, cardinality)
 	if err != nil {
-		return 0, err
+		return "", err
 	}
 
 	return res, nil

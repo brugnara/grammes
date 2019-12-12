@@ -21,7 +21,7 @@
 package model
 
 import (
-	"github.com/northwesternmutual/grammes/query/traversal"
+	"github.com/brugnara/grammes/query/traversal"
 )
 
 // Vertex maintains pointers to both a set
@@ -77,7 +77,7 @@ func (v *Vertex) PropertyMap() PropertyMap {
 
 // ID will retrieve the Vertex ID for you
 // without having to traverse all the way through the structures.
-func (v *Vertex) ID() int64 {
+func (v *Vertex) ID() string {
 	return v.Value.ID.Value
 }
 

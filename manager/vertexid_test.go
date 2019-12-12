@@ -27,7 +27,7 @@ import (
 
 	. "github.com/smartystreets/goconvey/convey"
 
-	"github.com/northwesternmutual/grammes/logging"
+	"github.com/brugnara/grammes/logging"
 )
 
 func TestVertexIDsByString(t *testing.T) {

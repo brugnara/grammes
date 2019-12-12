@@ -23,10 +23,10 @@ package manager
 import (
 	"strings"
 
-	"github.com/northwesternmutual/grammes/query/traversal"
-	"github.com/northwesternmutual/grammes/gremerror"
-	"github.com/northwesternmutual/grammes/logging"
-	"github.com/northwesternmutual/grammes/query"
+	"github.com/brugnara/grammes/gremerror"
+	"github.com/brugnara/grammes/logging"
+	"github.com/brugnara/grammes/query"
+	"github.com/brugnara/grammes/query/traversal"
 )
 
 type dropQueryManager struct {
@@ -53,7 +53,7 @@ func (v *dropQueryManager) DropVertexLabel(label string) error {
 	return nil
 }
 
-func (v *dropQueryManager) DropVertexByID(ids ...int64) error {
+func (v *dropQueryManager) DropVertexByID(ids ...string) error {
 	var err error
 	for _, id := range ids {
 		query := traversal.NewTraversal().V().HasID(id).Drop()
@@ -72,7 +72,7 @@ func (v *dropQueryManager) DropVerticesByString(q string) error {
 	if !strings.HasSuffix(q, "drop()") {
 		q += ".drop()"
 	}
-	
+
 	_, err := v.executeStringQuery(q)
 	if err != nil {
 		v.logger.Error("invalid query",

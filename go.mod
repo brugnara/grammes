@@ -1,4 +1,4 @@
-module github.com/northwesternmutual/grammes
+module github.com/brugnara/grammes
 
 go 1.13
 

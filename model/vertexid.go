@@ -24,5 +24,5 @@ package model
 // 'ID' data including the type and Value
 type ID struct {
 	Type  string `json:"@type"`
-	Value int64  `json:"@value"`
+	Value string `json:"@value"`
 }

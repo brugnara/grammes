@@ -23,10 +23,10 @@ package manager
 import (
 	"strconv"
 
-	"github.com/northwesternmutual/grammes/gremerror"
-	"github.com/northwesternmutual/grammes/logging"
-	"github.com/northwesternmutual/grammes/model"
-	"github.com/northwesternmutual/grammes/query/traversal"
+	"github.com/brugnara/grammes/gremerror"
+	"github.com/brugnara/grammes/logging"
+	"github.com/brugnara/grammes/model"
+	"github.com/brugnara/grammes/query/traversal"
 )
 
 type miscQueryManager struct {
@@ -46,7 +46,7 @@ func (m *miscQueryManager) DropAll() error {
 	return err
 }
 
-func (m *miscQueryManager) SetVertexProperty(id int64, keyAndVals ...interface{}) error {
+func (m *miscQueryManager) SetVertexProperty(id string, keyAndVals ...interface{}) error {
 	if len(keyAndVals)%2 != 0 {
 		m.logger.Error("number of parameters ["+strconv.Itoa(len(keyAndVals))+"]",
 			gremerror.NewGrammesError("SetVertexProperty", gremerror.ErrOddNumberOfParameters),
@@ -103,5 +103,7 @@ func (m *miscQueryManager) VertexCount() (int64, error) {
 		return 0, gremerror.ErrEmptyResponse
 	}
 
-	return resultingIDs.IDs[0].Value, nil
+	// TODO: is this ok?
+	return int64(len(resultingIDs.IDs)), nil
+	// return resultingIDs.IDs[0].Value, nil
 }

@@ -25,8 +25,8 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/northwesternmutual/grammes"
-	"github.com/northwesternmutual/grammes/examples/exampleutil"
+	"github.com/brugnara/grammes"
+	"github.com/brugnara/grammes/examples/exampleutil"
 )
 
 // This example is to show how to

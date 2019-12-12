@@ -23,11 +23,11 @@ package manager
 import (
 	"strconv"
 
-	"github.com/northwesternmutual/grammes/gremerror"
-	"github.com/northwesternmutual/grammes/logging"
-	"github.com/northwesternmutual/grammes/model"
-	"github.com/northwesternmutual/grammes/query"
-	"github.com/northwesternmutual/grammes/query/traversal"
+	"github.com/brugnara/grammes/gremerror"
+	"github.com/brugnara/grammes/logging"
+	"github.com/brugnara/grammes/model"
+	"github.com/brugnara/grammes/query"
+	"github.com/brugnara/grammes/query/traversal"
 )
 
 type addVertexQueryManager struct {

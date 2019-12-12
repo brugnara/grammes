@@ -23,7 +23,7 @@ package model
 import (
 	"errors"
 
-	"github.com/northwesternmutual/grammes/query/traversal"
+	"github.com/brugnara/grammes/query/traversal"
 )
 
 // Edge is the object that builds a
@@ -54,13 +54,13 @@ func (e *Edge) Label() string {
 
 // OutVertexID will retrieve the id for the
 // vertex that the edge goes out of.
-func (e *Edge) OutVertexID() (id int64) {
+func (e *Edge) OutVertexID() (id string) {
 	return e.Value.OutV.Value
 }
 
 // InVertexID will retrieve the id for the
 // vertex that the edge goes into.
-func (e *Edge) InVertexID() (id int64) {
+func (e *Edge) InVertexID() (id string) {
 	return e.Value.InV.Value
 }
 

@@ -27,10 +27,10 @@ import (
 
 	. "github.com/smartystreets/goconvey/convey"
 
-	"github.com/northwesternmutual/grammes"
-	"github.com/northwesternmutual/grammes/gremconnect"
-	"github.com/northwesternmutual/grammes/logging"
-	"github.com/northwesternmutual/grammes/manager"
+	"github.com/brugnara/grammes"
+	"github.com/brugnara/grammes/gremconnect"
+	"github.com/brugnara/grammes/logging"
+	"github.com/brugnara/grammes/manager"
 )
 
 var (

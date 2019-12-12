@@ -21,9 +21,9 @@
 package model
 
 import (
-	"github.com/northwesternmutual/grammes/gremerror"
+	"github.com/brugnara/grammes/gremerror"
 
-	"github.com/northwesternmutual/grammes/query/traversal"
+	"github.com/brugnara/grammes/query/traversal"
 )
 
 var newTrav = traversal.NewTraversal
@@ -134,7 +134,7 @@ func (v *Vertex) QueryInEdges(client queryClient, labels ...string) ([]Edge, err
 
 // AddEdge adds an outgoing edge from this Vertex object to
 // another Vertex object via its unique ID.
-func (v *Vertex) AddEdge(client queryClient, label string, outVID int64, properties ...interface{}) (Edge, error) {
+func (v *Vertex) AddEdge(client queryClient, label string, outVID string, properties ...interface{}) (Edge, error) {
 	if client == nil {
 		return Edge{}, gremerror.NewGrammesError("AddEdge", gremerror.ErrNilClient)
 	}

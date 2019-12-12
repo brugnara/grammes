@@ -28,7 +28,7 @@ import (
 
 func TestVertexPropertyValue(t *testing.T) {
 	Convey("Given a variable that represents the Vertex struct", t, func() {
-		testID := PropertyID{Value: PropertyIDValue{RelationID: "relID"}}
+		testID := PropertyID{Value: "relID"}
 		testValue := ValueWrapper{PropertyDetailedValue: PropertyDetailedValue{Value: "tstInterface", Type: "pdvType"}}
 		pi := Property{Type: "piType", Value: PropertyValue{ID: testID, Value: testValue, Label: "tstLabel"}}
 
@@ -47,17 +47,17 @@ func TestVertexPropertyValue(t *testing.T) {
 
 func TestVertexID(t *testing.T) {
 	Convey("Given a variable that represents the Vertex struct", t, func() {
-		testID := PropertyID{Value: PropertyIDValue{RelationID: "relID"}}
+		testID := PropertyID{Value: "relID"}
 		testValue := ValueWrapper{PropertyDetailedValue: PropertyDetailedValue{Value: "tstInterface", Type: "pdvType"}}
 		pi := Property{Type: "piType", Value: PropertyValue{ID: testID, Value: testValue, Label: "tstLabel"}}
 		pdmap := map[string][]Property{"testKey": []Property{pi}}
 
-		v := Vertex{Type: "tesType", Value: VertexValue{Properties: pdmap, ID: ID{Value: 6789}}}
+		v := Vertex{Type: "tesType", Value: VertexValue{Properties: pdmap, ID: ID{Value: "6789"}}}
 
 		Convey("When 'ID' is called with a string and int", func() {
 			result := v.ID()
 			Convey("Then result should equal 6789", func() {
-				So(result, ShouldEqual, 6789)
+				So(result, ShouldEqual, "6789")
 			})
 		})
 	})
@@ -65,12 +65,12 @@ func TestVertexID(t *testing.T) {
 
 func TestVertexLabel(t *testing.T) {
 	Convey("Given a variable that represents the Vertex struct", t, func() {
-		testID := PropertyID{Value: PropertyIDValue{RelationID: "relID"}}
+		testID := PropertyID{Value: "relID"}
 		testValue := ValueWrapper{PropertyDetailedValue: PropertyDetailedValue{Value: "tstInterface", Type: "pdvType"}}
 		pi := Property{Type: "piType", Value: PropertyValue{ID: testID, Value: testValue, Label: "tstLabel"}}
 		pdmap := map[string][]Property{"testKey": []Property{pi}}
 
-		v := Vertex{Type: "tesType", Value: VertexValue{Label: "testLabel", ID: ID{Value: 6789}, Properties: pdmap}}
+		v := Vertex{Type: "tesType", Value: VertexValue{Label: "testLabel", ID: ID{Value: "6789"}, Properties: pdmap}}
 
 		Convey("When 'Label' is called with a string and int", func() {
 			result := v.Label()
@@ -133,10 +133,10 @@ func TestAddEdge(t *testing.T) {
 		Convey("When 'AddEdges' is called with a string and int", func() {
 			var client queryClient
 			var edge Edge
-			var tstoutVID int64
-			tstoutVID = 12345
+			var tstoutVID string
+			tstoutVID = "12345"
 
-			result, _ := v.AddEdge(client, "testLbl", tstoutVID, "tstIntrf1", "tstIntrf2", 7777, 9876)
+			result, _ := v.AddEdge(client, "testLbl", tstoutVID, "tstIntrf1", "tstIntrf2", "7777", "9876")
 			Convey("Then result should equal 'testLabel'", func() {
 				So(result, ShouldResemble, edge)
 			})

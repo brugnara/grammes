@@ -25,9 +25,9 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/northwesternmutual/grammes"
-	"github.com/northwesternmutual/grammes/examples/exampleutil"
-	"github.com/northwesternmutual/grammes/query/predicate"
+	"github.com/brugnara/grammes"
+	"github.com/brugnara/grammes/examples/exampleutil"
+	"github.com/brugnara/grammes/query/predicate"
 )
 
 var (
