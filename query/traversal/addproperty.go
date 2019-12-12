@@ -40,7 +40,7 @@ func (g String) Property(objOrCard interface{}, obj interface{}, params ...inter
 	case cardinality.Cardinality:
 		g = g.append(objOrCard.(cardinality.Cardinality).String())
 	case string:
-		g = g.append("\"" + objOrCard.(string) + "\"")
+		g = g.append(",\"" + strings.ReplaceAll(obj.(string), "\"", "\\\"") + "\"")
 	default:
 		g = g.append(fmtStr("%v", objOrCard))
 	}
@@ -56,7 +56,7 @@ func (g String) Property(objOrCard interface{}, obj interface{}, params ...inter
 		for _, p := range params {
 			switch obj.(type) {
 			case string:
-				g = g.append(",\"" + p.(string) + "\"")
+				g = g.append(",\"" + strings.ReplaceAll(p.(string), "\"", "\\\"") + "\"")
 			default:
 				g = g.append(fmtStr(",%v", p))
 			}
